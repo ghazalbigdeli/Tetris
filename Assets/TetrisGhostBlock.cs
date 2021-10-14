@@ -6,13 +6,16 @@ public class TetrisGhostBlock : MonoBehaviour
 {
     public Vector3 rotationPoint;
     private float previousTime;
-    public float fallTime = 0.8f;
     public static int height = 20;
     public static int width = 10;
 
     void Start()
     {
-        
+        while (ValidMoves())
+        {
+            transform.position += new Vector3(0, -1, 0);
+        }
+        transform.position += new Vector3(0, 1, 0);
     }
 
 
@@ -26,6 +29,7 @@ public class TetrisGhostBlock : MonoBehaviour
             {
                 transform.position += new Vector3(1, 0, 0);
             }
+
         }
         else if (Input.GetKeyDown(KeyCode.RightArrow))
         {
@@ -52,19 +56,23 @@ public class TetrisGhostBlock : MonoBehaviour
             Destroy(this.gameObject);
             //FinalizeBlock();
         }
-        else if (Time.time - previousTime > (Input.GetKeyDown(KeyCode.DownArrow) ? fallTime / 10 : fallTime))
-        {
-            transform.position += new Vector3(0, -1, 0);
-            previousTime = Time.time;
-
-            if (ValidMoves() == false)
-            {
-                //FinalizeBlock();
-                Destroy(this.gameObject);
-            }
-        }
     }
 
+    bool withinBounds()
+    {
+        foreach (Transform children in transform)
+        {
+            int roundedX = Mathf.RoundToInt(children.transform.position.x);
+            int roundedY = Mathf.RoundToInt(children.transform.position.y);
+
+            if (roundedX < 0 || roundedY < 0 || roundedX >= width || roundedY >= height)
+            {
+                return false;
+            }
+        }
+
+        return true;
+    }
 
     bool ValidMoves()
     {
