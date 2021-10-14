@@ -1,5 +1,5 @@
 # Tetris
-# Made in Unity
+## Made in Unity
 Purpose: to create a simple version of a classic game, and to learn more about the Unity Engine.
 
 ## Try It
