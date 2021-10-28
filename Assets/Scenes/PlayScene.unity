@@ -237,7 +237,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   blocks:
   - {fileID: 5968089367234884696, guid: cfbb70fb08ded42fabe019b983d8b0b1, type: 3}
-  - {fileID: 3986140888421515448, guid: 39676db3d2dd9441ab302db24f5ee7cc, type: 3}
   - {fileID: 5026006240850714627, guid: 942a7be6dde884791af8e9189041fa14, type: 3}
   - {fileID: 5014511925943215651, guid: f9ec81b7e0bea409fabd3bc86325cfef, type: 3}
   - {fileID: 4165417938197769613, guid: 0baa9345818504d418794a1817b9a11a, type: 3}
@@ -245,7 +244,6 @@ MonoBehaviour:
   - {fileID: 1417477620417219786, guid: 138fda4f050a84a638834f84a45ee4f6, type: 3}
   ghostBlocks:
   - {fileID: 1526872029937639510, guid: fbdf286075af70b4d812ccc65f602fb9, type: 3}
-  - {fileID: 6617648157627960500, guid: 171be912a8832484abd5d511de9c4a76, type: 3}
   - {fileID: 530802392849557784, guid: aa26c363c54829049872b2b06014c297, type: 3}
   - {fileID: 5922619859131266649, guid: 9d2c324fb9613e94780a70ac349c0bc1, type: 3}
   - {fileID: 6952583978610706374, guid: 0b66880d1a682884e8227d9bbc25f295, type: 3}

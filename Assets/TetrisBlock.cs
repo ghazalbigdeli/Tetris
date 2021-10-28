@@ -67,9 +67,6 @@ public class TetrisBlock : MonoBehaviour
                 FinalizeBlock();
             }
         }
-
-        // draw ghost
-
     }
 
     void FinalizeBlock()
@@ -187,7 +184,6 @@ public class TetrisBlock : MonoBehaviour
                     grid[x, y] = grid[x, y + 1];
                     grid[x, y + 1] = null;
                     grid[x, y].transform.position -= new Vector3(0, 1, 0);
-                    Debug.Log("HELLO");
                 }
             }
         }

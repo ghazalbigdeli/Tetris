@@ -21,33 +21,45 @@ public class TetrisGhostBlock : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {
+    { 
+
         if (Input.GetKeyDown(KeyCode.LeftArrow))
         {
             transform.position += new Vector3(-1, 0, 0);
+            transform.position += new Vector3(0, 20, 0);
             if (ValidMoves() == false)
             {
                 transform.position += new Vector3(1, 0, 0);
+                transform.position += new Vector3(0, -20, 0);
             }
-
         }
         else if (Input.GetKeyDown(KeyCode.RightArrow))
         {
             transform.position += new Vector3(1, 0, 0);
+            transform.position += new Vector3(0, 20, 0);
             if (ValidMoves() == false)
             {
                 transform.position += new Vector3(-1, 0, 0);
+                transform.position += new Vector3(0, -20, 0);
             }
         }
         else if (Input.GetKeyDown(KeyCode.UpArrow))
         {
             // rotate
             transform.RotateAround(transform.TransformPoint(rotationPoint), new Vector3(0, 0, 1), -90);
+            transform.position += new Vector3(0, 20, 0);
             if (ValidMoves() == false)
             {
                 transform.RotateAround(transform.TransformPoint(rotationPoint), new Vector3(0, 0, 1), 90);
+                transform.position += new Vector3(0, -20, 0);
             }
         }
+
+        while (ValidMoves())
+        {
+            transform.position += new Vector3(0, -1, 0);
+        }
+        transform.position += new Vector3(0, 1, 0);
 
 
         if (Input.GetKeyDown(KeyCode.Space))
@@ -58,22 +70,6 @@ public class TetrisGhostBlock : MonoBehaviour
         }
     }
 
-    bool withinBounds()
-    {
-        foreach (Transform children in transform)
-        {
-            int roundedX = Mathf.RoundToInt(children.transform.position.x);
-            int roundedY = Mathf.RoundToInt(children.transform.position.y);
-
-            if (roundedX < 0 || roundedY < 0 || roundedX >= width || roundedY >= height)
-            {
-                return false;
-            }
-        }
-
-        return true;
-    }
-
     bool ValidMoves()
     {
         
@@ -82,10 +78,21 @@ public class TetrisGhostBlock : MonoBehaviour
             int roundedX = Mathf.RoundToInt(children.transform.position.x);
             int roundedY = Mathf.RoundToInt(children.transform.position.y);
 
-            if (roundedX < 0 || roundedY < 0 || roundedX >= width || roundedY >= height || TetrisBlock.grid[roundedX, roundedY] != null)
+            if (roundedY < height)
             {
-                return false;
+                if (roundedX < 0 || roundedY < 0 || roundedX >= width || TetrisBlock.grid[roundedX, roundedY] != null)
+                {
+                    return false;
+                }
+            } else
+            {
+                if (roundedX < 0 || roundedY < 0 || roundedX >= width)
+                {
+                    return false;
+                }
             }
+
+            
         }
 
         return true;
