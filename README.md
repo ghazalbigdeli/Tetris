@@ -12,9 +12,6 @@
 - Ghost tiles (showing placement of current tile)
 - Line clearing
 
-## Try It
-- Download files and run Tetris.exe
-
 ## To-Do
 - Add future tiles (show next 4 tiles)
 - Add game over screen
