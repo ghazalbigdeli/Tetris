@@ -1,8 +1,8 @@
 # Tetris, Made in Unity
-Purpose: to create a simple version of a classic game, and to learn more about the Unity Engine.
+<b>Purpose:</b> to create a simple version of a classic game, and to learn more about the Unity Engine.
 
 ## Try It
-- Download Tetris.exe and run it
+- Download files and run Tetris.exe
 
 ## To-Do
 - Add future tiles (show next 4 tiles)
